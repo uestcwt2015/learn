@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import './style2.css';
-import imgdemo from './asset/images/demo.jpeg';
+import imgdemo from './asset/images/demo2.jpg';
 
 function component() {
   var element = document.createElement('div');

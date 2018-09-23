@@ -21,7 +21,16 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         use: [
-          'file-loader'
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              }
+            }
+          }
         ]
       }
     ]
