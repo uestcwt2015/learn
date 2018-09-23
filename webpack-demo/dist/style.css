@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'myfont';
+  src: url(2295d52d0325cf71757b9f23a473091f.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
 .hello {
   color: red;
-  /* background: url('./asset/images/demo.jpeg'); */
+  font-family: 'myfont'
 }
 
 img {
