@@ -1,26 +1,18 @@
 import _ from 'lodash';
-// import './style.css';
-// import './style2.css';
-// import demo from './asset/images/demo.jpeg';
-// import demo2 from './asset/images/demo2.jpg';
+import printMe from './print';
 
 function component() {
   var element = document.createElement('div');
+  var btn = document.createElement('button');
 
-  // Lodash, now imported by this script
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  // element.className = 'hello';
+
+  btn.onclick = printMe;
+  btn.innerHTML = 'Click me and check the console!';
+
+  element.appendChild(btn);
 
   return element;
 }
 
 document.body.appendChild(component());
-//
-// var img = new Image();
-// img.src = demo;
-//
-// var img2 = new Image();
-// img2.src = demo2;
-//
-// document.body.appendChild(img);
-// document.body.appendChild(img2);
