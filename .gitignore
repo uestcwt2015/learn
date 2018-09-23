@@ -1,3 +1,4 @@
 /node/node_modules/
 /js/react/node_modules/
-/js/webpack/node_modules/
+/js/webpack/node_modules
+/cpp
