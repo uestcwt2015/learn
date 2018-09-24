@@ -1,57 +1,32 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackManifestPlugin = require('webpack-manifest-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
+  devtool: 'cheap-source-map',
   module: {
-    // rules: [
-    //   {
-    //     test: /\.css$/,
-    //     use: [
-    //       MiniCssExtractPlugin.loader,
-    //
-    //       'css-loader'
-    //     ]
-    //   },
-    //   {
-    //     test: /\.(png|jpg|jpeg|gif)$/,
-    //     use: [
-    //       {
-    //         loader: 'url-loader',
-    //         options: {
-    //           limit: 10000
-    //         }
-    //       },
-    //       {
-    //         loader: 'image-webpack-loader',
-    //         options: {
-    //           mozjpeg: {
-    //             progressive: true,
-    //             quality: 65
-    //           }
-    //         }
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     test: /\.(woff|woff2|eot|ttf|otf)$/,
-    //     use: [
-    //       'file-loader'
-    //     ]
-    //   }
-    // ]
+  },
+  devServer: {
+    contentBase: 'dist',
+    hot: true
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style.css'
-    })
+    new CleanWebpackPlugin(['dist']),
+    new WebpackManifestPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
