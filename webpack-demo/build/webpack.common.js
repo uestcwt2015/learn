@@ -4,17 +4,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-    math: './src/math.js'
+    app: './src/index.js'
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader']
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
